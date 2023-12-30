@@ -22,7 +22,7 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--font_inter), monospace;
-  font-variation-settings: var(--f-weight_main);
+  font-variation-settings: "wght" var(--f-weight_main);
   background-color: var(--bg-color);
   color: var(--accent-color);
   display: flex;
@@ -173,7 +173,7 @@
   font-family: var(--font_inter), monospace;
   font-size: 18px;
   font-style: normal;
-  font-weight: var(--f-weight_title);
+  font-variation-settings: "wght" var(--f-weight_title);
   line-height: normal;
   padding: 4px 10px 4px 10px;
   border-bottom: 2px solid var(--accent-color);
@@ -224,7 +224,7 @@
   font-family: var(--font_inter);
   font-size: 18px;
   font-style: normal;
-  font-weight: var(--f-weight_main);
+  font-variation-settings: "wght" var(--f-weight_main);
   line-height: 116.667%;
   padding: 25px 23px 0 23px;
   display: flex;
@@ -323,16 +323,48 @@
   transform-origin: left center;
 }
 
-.card__like-button:hover::after, 
+.card__like-button:hover::after,
 .card__floppy:hover::after {
-  transform: scaleX(1);  
+  transform: scaleX(1);
 }
 
-.card__like-button:focus-visible, 
-.card__floppy:focus-visible  {
+.card__like-button:focus-visible,
+.card__floppy:focus-visible {
   outline: none;
   box-shadow: 2px 2px var(--accent-color);
   transition: box-shadow 0.5s;
+}
+
+.filter-contrast {
+  filter: contrast(60%);
+}
+
+.filter-bright {
+  filter: brightness(120%);
+}
+
+.filter-blur {
+  filter: blur(0.2rem);
+}
+
+.filter-opacity {
+  filter: opacity(0.7);
+}
+
+.filter-grayscale {
+  filter: grayscale(0.5);
+}
+
+.filter-saturate {
+  filter: saturate(188%);
+}
+
+.filter-sepia {
+  filter: sepia(40%);
+}
+
+.filter-multiplicity {
+  filter: saturate(90%) hue-rotate(40deg) brightness(120%);
 }
 
 .floppy {
@@ -401,26 +433,18 @@
 .dialog_card {
   position: fixed;
   inset: 0;
-  padding: 31.5px 32.5px;
-  width: 357px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
   border: 2px solid var(--accent-color, #000);
   background-color: var(--bg-color, #fff);
   font-family: var(--alt-font, sans-serif);
   color: var(--accent-color, #000);
 }
 
-.dialog::backdrop {
-  background-color: black;
-  opacity: 0.75;
-  backdrop-filter: blur(7px);
-}
-
-.dialog_card:not([open]) {
-  opacity: 0;
-  pointer-events: none;
+.dialog_card[open] {
+  padding: 31.5px 32.5px;
+  width: 357px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .dialog_message {
@@ -466,7 +490,7 @@
 }
 
 .dialog_button:hover::after {
-  transform: scaleX(1);  
+  transform: scaleX(1);
 }
 
 .dialog_button:focus-visible {
@@ -495,6 +519,10 @@
   display: flex;
   gap: 20px;
 }
+
+.dialog_card::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+} 
 
 .floppy_dialog {
   inline-size: 39px;
