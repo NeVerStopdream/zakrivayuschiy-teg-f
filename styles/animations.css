@@ -12,6 +12,25 @@
 
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
+@keyframes button-underline {
+  from {
+    scale: 0;
+  }
+  to {
+    scale: 1;
+  }
+}
+
+@keyframes triangle {
+  from {
+    transform: translateX(-2px);
+  }
+
+  to {
+    transform: translateX(4px);
+  }
+}
+
 .like-icon.is-liked .heart {
     animation: icon-liked 0.3s ease-in 0.1s forwards alternate-reverse;
     transform-origin: center;

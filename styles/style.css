@@ -21,7 +21,7 @@
   background-position: center;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-family: var(--font_inter), monospace;
+  font-family: var(--font_inter), sans-serif;
   font-variation-settings: "wght" var(--f-weight_main);
   background-color: var(--bg-color);
   color: var(--accent-color);
@@ -52,14 +52,19 @@
 }
 
 .main_title {
-  font-family: var(--font_press);
+  font-family: var(--font_press), fantasy;
   color: var(--accent-color);
   text-transform: uppercase;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  text-decoration: none;
+}
+
+.main_title:focus-visible {
+  outline: none;
 }
 
 .cover_text {
-  font-family: var(--font_press), monospace;
+  font-family: var(--font_press), fantasy;
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   font-style: normal;
   font-weight: 400;
@@ -79,7 +84,7 @@
 }
 
 .theme-menu__item {
-  font-family: var(--font_press);
+  font-family: var(--font_press), fantasy;
   font-size: 14px;
 }
 
@@ -111,15 +116,6 @@
   transform-origin: left;
 }
 
-@keyframes button-underline {
-  from {
-    scale: 0;
-  }
-  to {
-    scale: 1;
-  }
-}
-
 .theme-menu__button:focus {
   outline: none;
   opacity: 0.6;
@@ -146,16 +142,6 @@
   animation: triangle 0.5s ease-in-out alternate-reverse infinite;
 }
 
-@keyframes triangle {
-  from {
-    transform: translateX(-2px);
-  }
-
-  to {
-    transform: translateX(4px);
-  }
-}
-
 .list_cards {
   display: flex;
   flex-direction: column;
@@ -170,7 +156,7 @@
 
 .card_title {
   color: var(--accent-color);
-  font-family: var(--font_inter), monospace;
+  font-family: var(--font_inter), sans-serif;
   font-size: 18px;
   font-style: normal;
   font-variation-settings: "wght" var(--f-weight_title);
@@ -189,7 +175,7 @@
   color: var(--accent-color);
   opacity: 0.5;
   mix-blend-mode: hard-light;
-  font-family: var(--font_press);
+  font-family: var(--font_press), fantasy;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -221,7 +207,7 @@
 
 .card_text {
   color: var(--accent-color);
-  font-family: var(--font_inter);
+  font-family: var(--font_inter), sans-serif;
   font-size: 18px;
   font-style: normal;
   font-variation-settings: "wght" var(--f-weight_main);
@@ -279,7 +265,7 @@
 }
 
 .button__text {
-  font-family: var(--font_press);
+  font-family: var(--font_press), fantasy;
   color: var(--text_color-button);
   font-size: 14px;
   font-style: normal;
@@ -299,7 +285,7 @@
   gap: 8px;
   place-content: center;
   margin-block-start: 54px;
-  margin-block-end: 20px;
+  margin-block-end: 105px;
   cursor: pointer;
   box-shadow: none;
   transition: box-shadow 0.5s;
@@ -430,25 +416,25 @@
   transition: fill 0.3s linear 0.05s;
 }
 
-.dialog_card {
+dialog[open] {
+  display: flex; 
+  padding: 31.5px 32.5px;
+  width: 357px;
+  flex-direction: column;
+  gap: 30px;
   position: fixed;
   inset: 0;
   border: 2px solid var(--accent-color, #000);
   background-color: var(--bg-color, #fff);
-  font-family: var(--alt-font, sans-serif);
   color: var(--accent-color, #000);
 }
 
-.dialog_card[open] {
-  padding: 31.5px 32.5px;
-  width: 357px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+dialog::backdrop {
+  background: rgba(0,0,0,0.7);
 }
 
 .dialog_message {
-  font-family: var(--font_press);
+  font-family: var(--font_press), fantasy;
   color: var(--text_color-button);
   font-size: 14px;
   font-style: normal;
@@ -457,7 +443,6 @@
   position: relative;
   mix-blend-mode: difference;
   transition: mix-blend-mode 0.5s;
-  z-index: 10;
   align-self: center;
   text-transform: uppercase;
   max-width: 234px;
@@ -474,6 +459,7 @@
   transition: box-shadow 0.5s;
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 .dialog_button::after {
@@ -500,7 +486,7 @@
 }
 
 .dialog_button__text {
-  font-family: var(--font_press);
+  font-family: var(--font_press), fantasy;
   color: var(--text_color-button);
   font-size: 14px;
   font-style: normal;
@@ -520,10 +506,6 @@
   gap: 20px;
 }
 
-.dialog_card::backdrop {
-  background-color: rgb(0 0 0 / 0.75);
-} 
-
 .floppy_dialog {
   inline-size: 39px;
   block-size: 39px;
@@ -532,7 +514,6 @@
   z-index: 10;
   align-self: center;
 }
-
 
 @media (width <= 375px) {
   .card_text {
@@ -552,6 +533,7 @@
     flex-direction: column;
     width: 306px;
     height: 80px;
+    margin-block-end: 102px;
   }
   
   .floppy {
@@ -564,3 +546,4 @@
     width: 341px;
   }
 }
+

@@ -20,8 +20,8 @@
   <body class="page">
     <header class="header">
       <div class="cover">
-        <h1 class="main_title">&lt;/html&gt;</h1>
-        <h2 class="cover_text">закрывающий тег</h2>
+        <a class="main_title">&lt;/html&gt;</a>
+        <h1 class="cover_text">закрывающий тег</h1>
       </div>
       <nav class="theme-menu header__theme-menu">
         <!-- Не меняйте разметку этого списка, иначе скрипты перестанут работать -->
@@ -269,7 +269,7 @@
             Вас окружали одногруппники, команда сопровождения и просто близкие люди, которым можно пожаловаться, если 
             очередной макет просто так не поддавался. 
             Осваивать что-то новое легче, когда рядом есть единомышленники, не правда ли?</p>
-            <p>Круто делится результатор с прошаренными людьми. Именно они могут понять каким трудом досталась эта победа.</p>
+            <p>Круто делится результатом с прошаренными людьми. Именно они могут понять каким трудом досталась эта победа.</p>
         </div>
         <div class="content__button-like">
           <button class="card__icon-button">
@@ -470,25 +470,28 @@
     </main>
 
     <footer>
-      <button type="button" class="card__floppy" onclick="window['dialog-id'].show();" aria-controls="dialog-id">
+      <button type="button" class="card__floppy" onclick="window['dialog-id'].showModal();" aria-controls="dialog-id">
         <svg class="floppy" viewBox="0 0 39 39" fill="currentColor">
           <use href="./svg/floppy.svg#floppy"></use>
         </svg>
         <span class="button__text">Сохранить на память</span>
       </button>
     </footer>
-    <dialog id="dialog-id" class="dialog_card">
+    
+    <dialog class="dialog" id="dialog-id">
       <div class="dialog_text">
         <svg class="floppy_dialog" viewBox="0 0 39 39" fill="currentColor">
           <use href="./svg/floppy.svg#floppy"></use>
         </svg>
           <h2 class="dialog_message">Вставьте дискету, чтобы продолжить</h2>
       </div>
-      <button class="dialog_button" type="button" onclick="window['dialog-id'].close();">
-          <span class="dialog_button__text">ok</span>
-      
-      </button>
-  </dialog>
+      <form method="dialog"> 
+        <button class="dialog_button" type="submit">
+            <span class="dialog_button__text">ok</span>
+        </button>
+      </form>
+    </dialog>
+    
     <script src="./scripts/like.js"></script>
   
   </body>
