@@ -417,7 +417,7 @@
 }
 
 dialog[open] {
-  display: flex; 
+  display: flex;
   padding: 31.5px 32.5px;
   width: 357px;
   flex-direction: column;
